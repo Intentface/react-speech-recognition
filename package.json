@@ -1,0 +1,28 @@
+{
+  "name": "@intentface/react-speech-recognition",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "lint": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Intentface Oy",
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.8",
+    "@types/react": "*",
+    "@types/react-speech-recognition": "*",
+    "react": "*",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-speech-recognition": "^3.9.5",
+    "react": "^18.3.1"
+  }
+}
