@@ -1,5 +1,11 @@
 # @intentface/react-speech-recognition
 
+## 1.0.3
+
+### Patch Changes
+
+- 64e165a: Update readme
+
 ## 1.0.2
 
 ### Patch Changes
