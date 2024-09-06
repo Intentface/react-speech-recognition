@@ -1,5 +1,11 @@
 # @intentface/react-speech-recognition
 
+## 1.0.4
+
+### Patch Changes
+
+- 90f586f: Added github repo url
+
 ## 1.0.3
 
 ### Patch Changes
