@@ -1,5 +1,11 @@
 # @intentface/react-speech-recognition
 
+## 1.0.5
+
+### Patch Changes
+
+- df4b3a1: Fix situation where we call onUpdate and onError even when there is no support for speech recognition
+
 ## 1.0.4
 
 ### Patch Changes
