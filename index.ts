@@ -110,12 +110,14 @@ export function useSpeechRecognition({
   }, [SpeechRecognition, continuous, lang, timeout]);
 
   useEffect(() => {
+    if (!SpeechRecognition) return;
     if (onUpdate) onUpdate({ transcript, interimTranscript, isFinal });
-  }, [onUpdate, transcript, interimTranscript, isFinal]);
+  }, [onUpdate, transcript, interimTranscript, isFinal, SpeechRecognition]);
 
   useEffect(() => {
+    if (!SpeechRecognition) return;
     if (onError) onError({ error });
-  }, [onError, error]);
+  }, [onError, error, SpeechRecognition]);
 
   const start = useCallback(() => {
     if (!recognitionRef.current) return;
