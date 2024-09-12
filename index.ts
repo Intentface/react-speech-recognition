@@ -35,6 +35,7 @@ export function useSpeechRecognition({
   const [interimTranscript, setInterimTranscript] = useState("");
   const [isFinal, setIsFinal] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [isSupported, setIsSupported] = useState(false);
   const [error, setError] = useState<SpeechRecognitionErrorEvent | null>(null);
 
   const recognitionRef = useRef<SpeechRecognition | null>(null);
@@ -46,6 +47,10 @@ export function useSpeechRecognition({
     }
     return window.SpeechRecognition || window.webkitSpeechRecognition;
   }, []);
+
+  useEffect(() => {
+    setIsSupported(!!SpeechRecognition);
+  }, [SpeechRecognition]);
 
   useEffect(() => {
     if (!SpeechRecognition) return;
@@ -110,14 +115,14 @@ export function useSpeechRecognition({
   }, [SpeechRecognition, continuous, lang, timeout]);
 
   useEffect(() => {
-    if (!SpeechRecognition) return;
+    if (!isSupported) return;
     if (onUpdate) onUpdate({ transcript, interimTranscript, isFinal });
-  }, [onUpdate, transcript, interimTranscript, isFinal, SpeechRecognition]);
+  }, [onUpdate, transcript, interimTranscript, isFinal, isSupported]);
 
   useEffect(() => {
-    if (!SpeechRecognition) return;
+    if (!isSupported) return;
     if (onError) onError({ error });
-  }, [onError, error, SpeechRecognition]);
+  }, [onError, error, isSupported]);
 
   const start = useCallback(() => {
     if (!recognitionRef.current) return;
@@ -134,7 +139,7 @@ export function useSpeechRecognition({
     interimTranscript,
     isListening,
     isFinal,
-    isSupported: !!SpeechRecognition,
+    isSupported,
     start,
     stop,
     error,
