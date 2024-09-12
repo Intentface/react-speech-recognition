@@ -1,5 +1,11 @@
 # @intentface/react-speech-recognition
 
+## 1.0.6
+
+### Patch Changes
+
+- 4da06da: Fix hydration error regarding isSupported flag
+
 ## 1.0.5
 
 ### Patch Changes
